@@ -2,7 +2,7 @@
 - name: Red Hat Insights Events Rulebook
   hosts: all
   sources:
-    - redhat.insights_eda.insights:
+    - redhat.redhatinsights.eda:
         host: 0.0.0.0
         port: 5000
   rules:
