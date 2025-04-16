@@ -2,7 +2,10 @@
 - name: Red Hat Insights Events Rulebook
   hosts: all
   sources:
-    - ansible.eda.webhook
+    - redhatinsights.eda.insights:
+        host: "0.0.0.0"
+        port: "5000"
+        token: "{{ secret_token }}"
   rules:
     - name: Log All Insights Events
       condition: event.payload is defined
