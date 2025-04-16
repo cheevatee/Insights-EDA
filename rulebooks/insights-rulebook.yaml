@@ -1,7 +1,10 @@
 ---
 - name: Red Hat Insights Events Rulebook
   hosts: all
-  sources: {}
+  sources:
+   - ansible.eda.webhook:
+       host: "{{ eda_webhook_host }}"
+       port: "{{ eda_webhook_port }}"
   rules:
     - name: Log All Insights Events
       condition: event.payload is defined
