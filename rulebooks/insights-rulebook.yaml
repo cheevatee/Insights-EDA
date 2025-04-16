@@ -12,4 +12,4 @@
       action:
         debug:
           msg: >
-            "Received Insights event: {{ event.payload | to_nice_json }}"
+            "Received Insights event: {{ event.payload | string }}"
