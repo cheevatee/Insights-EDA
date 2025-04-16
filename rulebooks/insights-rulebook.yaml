@@ -3,8 +3,7 @@
   hosts: all
   sources:
    - ansible.eda.webhook:
-       host: "{{ eda_webhook_host }}"
-       port: "{{ eda_webhook_port }}"
+       port: 5002
   rules:
     - name: Log All Insights Events
       condition: event.payload is defined
