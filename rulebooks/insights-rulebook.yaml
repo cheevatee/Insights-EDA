@@ -2,7 +2,7 @@
 - name: Red Hat Insights Events Rulebook
   hosts: all
   sources:
-    - ansible.eda.event_stream:
+    - eda.event_stream:
         name: "Insights-event-stream"
   rules:
     - name: Log All Insights Events
