@@ -2,8 +2,9 @@
 - name: Red Hat Insights Events Rulebook
   hosts: all
   sources:
-    - eda.event_stream:
-        name: "Insights-event-stream"
+    - redhatinsights.eda.insights:
+         host: 0.0.0.0
+         port: 5000
   rules:
     - name: Log All Insights Events
       condition: event.payload is defined
