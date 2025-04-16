@@ -2,8 +2,8 @@
 - name: Red Hat Insights Events Rulebook
   hosts: all
   sources:
-    - event_stream:
-        name: Red-Hat-Insights-event-stream
+    - ansible.eda.event_stream:
+        name: "Red Hat Insights event stream"
   rules:
     - name: Log All Insights Events
       condition: event.payload is defined
