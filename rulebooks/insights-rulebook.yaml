@@ -16,7 +16,7 @@
           organization: Default
           job_args:
             extra_vars:
-              application: "{{ event.payload.application }}"
+              application: "{{ event.payload.application | string }}"
     - name: Log All Insights Events
       condition: event.payload is defined
       action:
