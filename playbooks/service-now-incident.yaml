@@ -27,7 +27,7 @@
           Affected system: "{{ payload.context.display_name | default('') }}"
           Event type: "{{ payload.event_type | default('') }}"
           Bundle: "{{ payload.bundle | default('') }}"
+          Created at: "{{ payload.timestamp | default('') }}"
         incident_mapping:
           close_code:
             "": ""
-          Created at: "{{ payload.timestamp | default('') }}"
