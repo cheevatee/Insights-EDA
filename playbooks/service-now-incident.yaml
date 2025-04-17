@@ -17,12 +17,13 @@
           password: "{{ sn_password }}"
         state: new
         caller: "{{ sn_user }}"
-        impact: 3
-        urgency: 3
+        impact: low
+        urgency: low
+        close_code: ""
         short_description: "{{ payload.application | upper | default('') }}"
         description: |-
-          impact: 3
-          urgency: 3
+          impact: low
+          urgency: low
           Account id: "{{ payload.account_id | default('') }}"
           Affected system: "{{ payload.context.display_name | default('') }}"
           Event type: "{{ payload.event_type | default('') }}"
