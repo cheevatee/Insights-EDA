@@ -23,11 +23,11 @@
         description: |
           "impact: low
           urgency: low
-          Account id: '{{ payload.account_id | default('') }}'
-          Affected system: '{{ payload.context.display_name | default('') }}'
-          Event type: '{{ payload.event_type | default('') }}'
-          Bundle: '{{ payload.bundle | default('') }}'
-          Created at: '{{ payload.timestamp | default('') }}'"
+          Account id: {{ payload.account_id | default('') }}
+          Affected system: {{ payload.context.display_name | default('') }}
+          Event type: {{ payload.event_type | default('') }}
+          Bundle: {{ payload.bundle | default('') }}
+          Created at: {{ payload.timestamp | default('') }}"
         incident_mapping:
           close_code:
             "": ""
