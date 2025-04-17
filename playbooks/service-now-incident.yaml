@@ -16,6 +16,8 @@
           username: "{{ sn_user }}"
           password: "{{ sn_password }}"
         state: new
+        impact: low
+        urgency: low
         short_description: "{{ application | upper | default('') }}"
         description: |-
           impact: low
