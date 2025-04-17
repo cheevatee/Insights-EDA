@@ -10,10 +10,10 @@
         username: "{{ service-now-user }}"
         password: "{{ service-now-password }}"
       state: new
-      urgency: low
       short_description: {{ ansible_eda.event.payload.application | upper }}| default("") }}
       description: |-
         impact: low
+        urgency: low
         Account id: {{ ansible_eda.event.payload.account_id | default("") }}
         Affected system: {{ ansible_eda.event.payload.context.display_name | default("") }}
         Event type: {{ ansible_eda.event.payload.event_type | default("") }}
