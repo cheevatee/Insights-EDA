@@ -1,21 +1,20 @@
----
 - name: Create an Incident
   hosts: localhost
   gather_facts: no
   tasks:
-  - name: Create the incident
-    servicenow.itsm.incident:
-      instance:
-        host: "{{ sn_instance }}"
-        username: "{{ sn_user }}"
-        password: "{{ sn_password }}"
-      state: new
-      short_description: "{{ ansible_eda.event.payload.application | upper | default('') }}"
-      description: |-
-        impact: low
-        urgency: low
-        Account id: "{{ ansible_eda.event.payload.account_id | default('') }}"
-        Affected system: "{{ ansible_eda.event.payload.context.display_name | default('') }}"
-        Event type: "{{ ansible_eda.event.payload.event_type | default('') }}"
-        Bundle: "{{ ansible_eda.event.payload.bundle | default('') }}"
-        Created at: "{{ ansible_eda.event.payload.timestamp | default('') }}"
+    - name: Create the incident
+      servicenow.itsm.incident:
+        instance:
+          host: "{{ sn_instance }}"
+          username: "{{ sn_user }}"
+          password: "{{ sn_password }}"
+        state: new
+        short_description: "{{ application | upper | default('') }}"
+        description: |-
+          impact: low
+          urgency: low
+          Account id: "{{ account_id | default('') }}"
+          Affected system: "{{ context.display_name | default('') }}"
+          Event type: "{{ event_type | default('') }}"
+          Bundle: "{{ bundle | default('') }}"
+          Created at: "{{ timestamp | default('') }}"
