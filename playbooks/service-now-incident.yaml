@@ -39,7 +39,7 @@
           impact: low
           urgency: low
           Account id: "{{ account_id | default('') }}"
-          Affected system: "{{ context.display_name | default('') }}"
+          Affected system: "{{ display_name | default('') }}"
           Event type: "{{ event_type | default('') }}"
           Bundle: "{{ bundle | default('') }}"
           Created at: "{{ timestamp | default('') }}"
