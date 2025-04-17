@@ -10,7 +10,7 @@
         username: "{{ service-now-user }}"
         password: "{{ service-now-password }}"
       state: new
-      short_description: {{ ansible_eda.event.payload.application | upper }}| default("") }}
+      short_description: {{ ansible_eda.event.payload.application | upper | default("") }}
       description: |-
         impact: low
         urgency: low
