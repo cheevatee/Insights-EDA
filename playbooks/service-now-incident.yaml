@@ -2,19 +2,26 @@
   hosts: localhost
   gather_facts: no
   tasks:
-    - name: Create the incident
-      servicenow.itsm.incident:
-        instance:
-          host: "{{ sn_instance }}"
-          username: "{{ sn_user }}"
-          password: "{{ sn_password }}"
-        state: new
-        short_description: "{{ payload.application | upper | default('') }}"
-        description: |-
-          impact: low
-          urgency: low
-          Account id: "{{ account_id | default('') }}"
-          Affected system: "{{ context.display_name | default('') }}"
-          Event type: "{{ event_type | default('') }}"
-          Bundle: "{{ bundle | default('') }}"
-          Created at: "{{ timestamp | default('') }}"
+    - name: Dump incoming vars
+      debug:
+        msg:
+          - "application={{ application | default('MISSING') }}"
+          - "account_id={{ account_id | default('MISSING') }}"
+          - "event_type={{ event_type | default('MISSING') }}"
+          - "bundle={{ bundle | default('MISSING') }}"
+#    - name: Create the incident
+#      servicenow.itsm.incident:
+#        instance:
+#          host: "{{ sn_instance }}"
+#          username: "{{ sn_user }}"
+#          password: "{{ sn_password }}"
+#        state: new
+#        short_description: "{{ payload.application | upper | default('') }}"
+#        description: |-
+#          impact: low
+#          urgency: low
+#          Account id: "{{ account_id | default('') }}"
+#          Affected system: "{{ context.display_name | default('') }}"
+#          Event type: "{{ event_type | default('') }}"
+#          Bundle: "{{ bundle | default('') }}"
+#          Created at: "{{ timestamp | default('') }}"
