@@ -16,6 +16,7 @@
           username: "{{ sn_user }}"
           password: "{{ sn_password }}"
         state: new
+        caller: "System Administrator"
         impact: low
         urgency: low
         short_description: "{{ application | upper | default('') }}"
