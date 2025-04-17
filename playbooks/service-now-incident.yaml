@@ -32,29 +32,28 @@
           close_code:
             "": ""
       register: created
-    - name: Patch the Description via REST
+    - name: Append text to Additional comments
       servicenow.itsm.api:
         instance:
           host:     "{{ sn_instance }}"
           username: "{{ sn_user }}"
           password: "{{ sn_password }}"
-        resource:  "incident"                     # just the table name
+        resource:  incident
         action:    patch
-        sys_id:    "{{ created.record.sys_id }}"  # ⬅️ supply the sys_id here
+        sys_id:    "{{ created.record.sys_id }}"
         data:
-          description: |
-            impact: low
-            urgency: low
-            Account id:       {{ payload.account_id     | default('') }}
-            Affected system:  {{ payload.context.display_name | default('') }}
-            Event type:       {{ payload.event_type   | default('') }}
-            Bundle:           {{ payload.bundle       | default('') }}
-            Created at:       {{ payload.timestamp    | default('') }}
+          comments: |
+            Impact:   low
+            Urgency:  low
+            Account ID:        {{ payload.account_id   | default('') }}
+            Affected system:   {{ payload.context.display_name | default('') }}
+            Event type:        {{ payload.event_type | default('') }}
+            Bundle:            {{ payload.bundle | default('') }}
+            Created at:        {{ payload.timestamp | default('') }}
       when: created.record.sys_id is defined
-      register: patched
-
+      register: add_comments
     - name: Verify final Description
       debug:
         msg: |
           ✔ Created {{ created.record.number }} (sys_id={{ created.record.sys_id }})
-          ↳ description = "{{ patched.record.description | default('<empty>') }}"
+          ✔ Comments = "{{ add_comments.record.comments | default('<empty>') }}"
