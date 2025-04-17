@@ -1,14 +1,14 @@
 ---
-- name: Create servicenow Incident
+- name: Create an Incident
   hosts: localhost
   gather_facts: no
   tasks:
-  - name: Create a servicenow incident
+  - name: Create the incident
     servicenow.itsm.incident:
       instance:
-        host: "{{ servicenow-instance }}"
-        username: "{{ servicenow-user }}"
-        password: "{{ servicenow-password }}"
+        host: "{{ sn-instance }}"
+        username: "{{ sn-user }}"
+        password: "{{ sn-password }}"
       state: new
       short_description: "{{ ansible_eda.event.payload.application | upper | default('') }}"
       description: |-
