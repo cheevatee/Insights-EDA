@@ -38,9 +38,9 @@
           host:     "{{ sn_instance }}"
           username: "{{ sn_user }}"
           password: "{{ sn_password }}"
-        # target the specific record
-        resource:  "incident/{{ created.record.sys_id }}"
+        resource:  "incident"                     # just the table name
         action:    patch
+        sys_id:    "{{ created.record.sys_id }}"  # ⬅️ supply the sys_id here
         data:
           description: |
             impact: low
