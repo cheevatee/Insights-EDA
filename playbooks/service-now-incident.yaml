@@ -1,6 +1,6 @@
 - name: Create an Incident
   hosts: all
-  gather_facts: no
+  gather_facts: yes
   tasks:
     - name: Dump all received variables
       debug:
