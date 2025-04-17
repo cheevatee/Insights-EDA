@@ -15,13 +15,7 @@
           name: "Create ServiceNow Incident"
           organization: Default
           job_args: 
-            extra_vars:
-              application: "{{ payload.application }}"
-              account_id:  "{{ payload.account_id }}"
-              context_display_name: "{{ payload.context.display_name }}"
-              event_type: "{{ payload.event_type }}"
-              bundle:      "{{ payload.bundle }}"
-              timestamp:   "{{ payload.timestamp }}"
+            extra_vars: "{{ payload }}"
     - name: Log All Insights Events
       condition: event.payload is defined
       action:
