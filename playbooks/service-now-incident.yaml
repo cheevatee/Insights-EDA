@@ -20,7 +20,7 @@
         impact: low
         urgency: low
         short_description: "{{ payload.application | upper | default('') }}"
-        comments: |-
+        description: |-
           impact: low
           urgency: low
           Account id: "{{ payload.account_id | default('') }}"
