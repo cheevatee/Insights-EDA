@@ -8,7 +8,7 @@
   tasks:
     - name: Dump all received variables
       debug:
-        var: application
+        var: vars
 #    - name: Create the incident
 #      servicenow.itsm.incident:
 #        instance:
