@@ -3,7 +3,7 @@
   hosts: localhost
   gather_facts: no
   tasks:
-  - name: Create an incident
+  - name: Create a ServiceNow incident
     servicenow.itsm.incident:
       instance:
         host: "{{ service-now-instance }}" #https://instance_id.service-now.com
