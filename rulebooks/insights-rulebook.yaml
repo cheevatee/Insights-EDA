@@ -14,8 +14,8 @@
         run_job_template:
           name: "Create ServiceNow Incident"
           organization: Default
-          playbook_args:
-            extra_vars: "{{ event.payload }}"
+          job_args:
+            extra_vars: "{{ event.payload | to_json | from_json }}"
     - name: Log All Insights Events
       condition: event.payload is defined
       action:
