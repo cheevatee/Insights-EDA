@@ -5,6 +5,21 @@
     - name: application
       prompt: ""
       private: false
+    - name: account_id
+      prompt: ""
+      private: false
+    - name: display_name
+      prompt: ""
+      private: false
+    - name: event_type
+      prompt: ""
+      private: false
+    - name: bundle
+      prompt: ""
+      private: false
+    - name: timestamp
+      prompt: ""
+      private: false
   tasks:
     - name: Dump all received variables
       debug:
