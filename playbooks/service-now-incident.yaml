@@ -9,22 +9,22 @@
     - name: Dump all received variables
       debug:
         var: vars
-    - name: Create the incident
-      servicenow.itsm.incident:
-        instance:
-          host: "{{ sn_instance }}"
-          username: "{{ sn_user }}"
-          password: "{{ sn_password }}"
-        state: new
-        caller: "{{ sn_user }}"
-        impact: low
-        urgency: low
-        short_description: "{{ application | upper | default('') }}"
-        description: |-
-          impact: low
-          urgency: low
-          Account id: "{{ account_id | default('') }}"
-          Affected system: "{{ display_name | default('') }}"
-          Event type: "{{ event_type | default('') }}"
-          Bundle: "{{ bundle | default('') }}"
-          Created at: "{{ timestamp | default('') }}"
+#    - name: Create the incident
+#      servicenow.itsm.incident:
+#        instance:
+#          host: "{{ sn_instance }}"
+#          username: "{{ sn_user }}"
+#          password: "{{ sn_password }}"
+#        state: new
+#        caller: "{{ sn_user }}"
+#        impact: low
+#        urgency: low
+#        short_description: "{{ application | upper | default('') }}"
+#        description: |-
+#          impact: low
+#          urgency: low
+#          Account id: "{{ account_id | default('') }}"
+#          Affected system: "{{ display_name | default('') }}"
+#          Event type: "{{ event_type | default('') }}"
+#          Bundle: "{{ bundle | default('') }}"
+#          Created at: "{{ timestamp | default('') }}"
