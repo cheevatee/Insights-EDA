@@ -1,12 +1,12 @@
 ---
-- name: Create ServiceNow Incident
+- name: Create servicenow Incident
   hosts: localhost
   gather_facts: no
   tasks:
-  - name: Create a ServiceNow incident
+  - name: Create a servicenow incident
     servicenow.itsm.incident:
       instance:
-        host: "{{ service-now-instance }}" #https://instance_id.service-now.com
+        host: "{{ service-now-instance }}"
         username: "{{ service-now-user }}"
         password: "{{ service-now-password }}"
       state: new
