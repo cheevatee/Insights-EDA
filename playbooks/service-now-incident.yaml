@@ -2,13 +2,9 @@
   hosts: localhost
   gather_facts: no
   tasks:
-    - name: Dump incoming vars
+    - name: Dump all received variables
       debug:
-        msg:
-          - "application={{ ansible_eda.event.payload.application | default('MISSING') }}"
-          - "account_id={{ ansible_eda.event.payload.account_id | default('MISSING') }}"
-          - "event_type={{ ansible_eda.event.payload.event_type | default('MISSING') }}"
-          - "bundle={{ ansible_eda.event.payload.bundle | default('MISSING') }}"
+        var: vars
 #    - name: Create the incident
 #      servicenow.itsm.incident:
 #        instance:
