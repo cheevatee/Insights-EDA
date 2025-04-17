@@ -56,4 +56,3 @@
       debug:
         msg: |
           ✔ Created {{ created.record.number }} (sys_id={{ created.record.sys_id }})
-          ✔ Comments = "{{ add_comments.record.comments | default('<empty>') }}"
