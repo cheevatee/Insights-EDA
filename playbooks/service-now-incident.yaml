@@ -1,6 +1,10 @@
 - name: Create an Incident
-  hosts: all
-  gather_facts: yes
+  hosts: localhost
+  gather_facts: no
+  vars_prompt:
+    - name: application
+      prompt: ""
+      private: false
   tasks:
     - name: Dump all received variables
       debug:
