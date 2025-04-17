@@ -15,7 +15,8 @@
           name: "Create ServiceNow Incident"
           organization: Default
           job_args:
-            extra_vars: "{{ event.payload }}"
+            extra_vars: 
+              payload: "{{ event.payload }}"
     - name: Log All Insights Events
       condition: event.payload is defined
       action:
