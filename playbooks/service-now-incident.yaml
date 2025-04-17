@@ -1,0 +1,21 @@
+---
+- name: Create ServiceNow Incident
+  hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: Create a ServiceNow incident
+    servicenow.itsm.incident:
+      instance:
+        host: "{{ service-now-instance }}" #https://instance_id.service-now.com
+        username: "{{ service-now-user }}"
+        password: "{{ service-now-password }}"
+      state: new
+      impact: low
+      urgency: low
+      short_description: {{ ansible_eda.event.payload.application | upper }}| default("") }}
+      description: |-
+        Account id: {{ ansible_eda.event.payload.account_id | default("") }}
+        Affected system: {{ ansible_eda.event.payload.context.display_name | default("") }}
+        Event type: {{ ansible_eda.event.payload.event_type | default("") }}
+        Bundle: {{ ansible_eda.event.payload.bundle | default("") }}
+        Created at: {{ ansible_eda.event.payload.timestamp | default("") }}
