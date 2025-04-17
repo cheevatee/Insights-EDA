@@ -9,12 +9,12 @@
           username: "{{ sn_user }}"
           password: "{{ sn_password }}"
         state: new
-        short_description: "{{ payload.application | upper | default('') }}"
+        short_description: "{{ application | upper | default('') }}"
         description: |-
           impact: low
           urgency: low
-          Account id: "{{ payload.account_id | default('') }}"
-          Affected system: "{{ payload.context.display_name | default('') }}"
-          Event type: "{{ payload.event_type | default('') }}"
-          Bundle: "{{ payload.bundle | default('') }}"
-          Created at: "{{ payload.timestamp | default('') }}"
+          Account id: "{{ account_id | default('') }}"
+          Affected system: "{{ context.display_name | default('') }}"
+          Event type: "{{ event_type | default('') }}"
+          Bundle: "{{ bundle | default('') }}"
+          Created at: "{{ timestamp | default('') }}"
