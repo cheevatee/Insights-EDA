@@ -16,12 +16,12 @@
           organization: Default
           job_args: 
             extra_vars:
-              application: "{{ event.payload.application }}"
-              account_id:  "{{ event.payload.account_id }}"
-              context_display_name: "{{ event.payload.context.display_name }}"
-              event_type: "{{ event.payload.event_type }}"
-              bundle:      "{{ event.payload.bundle }}"
-              timestamp:   "{{ event.payload.timestamp }}"
+              application: "{{ payload.application }}"
+              account_id:  "{{ payload.account_id }}"
+              context_display_name: "{{ payload.context.display_name }}"
+              event_type: "{{ payload.event_type }}"
+              bundle:      "{{ payload.bundle }}"
+              timestamp:   "{{ payload.timestamp }}"
     - name: Log All Insights Events
       condition: event.payload is defined
       action:
