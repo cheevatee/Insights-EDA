@@ -7,6 +7,12 @@
        port: "5000"
        token: "{{ secret_token }}"
   rules:
+    - name: Log All Insights Events
+      condition: event.payload is defined
+      action:
+        debug:
+          msg: >
+            "Received Insights event: {{ event.payload.application }}" #| string
     - name: Match Test event
       condition: 
         event.payload.application == "Test application" and event.payload.event_type == "Test event"
@@ -17,9 +23,3 @@
           job_args:
             extra_vars:
               application: "{{ event.payload.application }}"
-    - name: Log All Insights Events
-      condition: event.payload is defined
-      action:
-        debug:
-          msg: >
-            "Received Insights event: {{ event.payload | string }}"
