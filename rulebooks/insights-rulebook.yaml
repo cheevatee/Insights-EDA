@@ -11,7 +11,8 @@
       condition: 
         event.payload.application == "Test-application" and event.payload.event_type == "Test-event"
       action:
-        run_job_template:
+#        run_job_template:
+        run_playbook:
           name: "Create ServiceNow Incident"
           organization: Default
           job_args:
