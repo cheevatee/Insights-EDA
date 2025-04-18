@@ -1,0 +1,32 @@
+version: 3
+
+images:
+  base_image:
+    name: 'registry.redhat.io/ansible-automation-platform-25/de-minimal-rhel9:latest'
+
+dependencies:
+  python: requirements.txt
+  ansible_core:
+    package_pip: ansible-core
+  ansible_runner:
+    package_pip: ansible-runner
+  galaxy:
+    collections:
+      - name: ansible.eda
+        file: collections/ansible-eda-2.6.1.tar.gz
+      - name: community.general
+        file: collections/community-general-10.5.0.tar.gz
+      - name: redhatinsights.eda
+        file: collections/redhatinsights-eda-1.2.3.tar.gz
+      - name: servicenow.itsm
+        file: collections/servicenow-itsm-2.8.0.tar.gz
+  system:
+    - pkgconf-pkg-config [platform:rpm]
+    - systemd-devel [platform:rpm]
+    - gcc [platform:rpm]
+    - python3-devel [platform:rpm]
+  python_interpreter:
+    package_system: "python3"
+
+options:
+  package_manager_path: /usr/bin/microdnf
